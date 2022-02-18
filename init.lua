@@ -1,16 +1,33 @@
-require "user.options"
-require "user.keybindings"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.null-ls"
-require "user.toggleterm"
-
+require("user.options")
+require("user.keybindings")
+require("user.plugins")
+require("user.colorscheme")
+require("user.cmp")
+require("user.lsp")
+require("user.debugger")
+require("user.telescope")
+require("user.treesitter")
+require("user.autopairs")
+require("user.comment")
+require("user.gitsigns")
+require("user.nvim-tree")
+require("user.bufferline")
+require("user.null-ls")
+require("user.toggleterm")
+require("user.lualine")
+require("user.impatient")
+require("user.indentline")
+require("user.alpha")
+require("user.whichkey")
+require("user.autocommands")
+require("user.presence")
+require("user.symbols-outline")
+-- require("user.truezen")
+require("user.todo-comments")
+require("user.trouble")
+-- require("user.venn")
+-- require("user.nabla") -- equations
+require("user.marks")
+require("user.goto-preview")
+require("user.misc")
+require("user.rust-tools")
