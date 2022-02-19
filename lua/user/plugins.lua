@@ -77,6 +77,9 @@ return packer.startup(function(use)
 	use("gbprod/substitute.nvim")
 	use("pocco81/truezen.nvim")
 
+	use("rmagatti/auto-session")
+  use "rmagatti/session-lens"
+
 	-- Notes
 	-- use("jbyuki/nabla.nvim")
 	-- use("jbyuki/venn.nvim")

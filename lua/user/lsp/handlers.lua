@@ -84,9 +84,17 @@ local function lsp_keymaps(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+local disable_formatting = {
+  "tsserver",
+  "rust_analyzer",
+  "sumneko_lua",
+}
+
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" or client.name == "rust_analyzer" then
-    client.resolved_capabilities.document_formatting = false
+  for _, name in pairs(disable_formatting) do
+    if client.name == name then
+      client.resolved_capabilities.document_formatting = false
+    end
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
