@@ -81,7 +81,7 @@ return packer.startup(function(use)
   use "rmagatti/session-lens"
 
 	-- Notes
-	-- use("jbyuki/nabla.nvim")
+	use("jbyuki/nabla.nvim")
 	-- use("jbyuki/venn.nvim")
 
 	-- Colorschemes

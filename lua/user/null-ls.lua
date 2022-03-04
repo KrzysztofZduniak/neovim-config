@@ -12,11 +12,16 @@ null_ls.setup({
 	sources = {
 		-- Lua
 		formatting.stylua,
+
 		-- python
 		formatting.black.with({ extra_args = { "--fast" } }),
 		diagnostics.flake8,
 
-    -- rust
-    formatting.rustfmt
+		-- rust
+		formatting.rustfmt,
+
+		-- c/c++
+		formatting.clang_format,
+		diagnostics.cppcheck,
 	},
 })
