@@ -23,5 +23,9 @@ null_ls.setup({
 		-- c/c++
 		formatting.clang_format,
 		diagnostics.cppcheck,
+
+    -- bash
+    formatting.shfmt,
+    diagnostics.shellcheck,
 	},
 })
