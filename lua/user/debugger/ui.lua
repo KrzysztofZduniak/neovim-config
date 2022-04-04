@@ -43,3 +43,5 @@ ui.setup({
 	},
 	windows = { indent = 1 },
 })
+
+return ui

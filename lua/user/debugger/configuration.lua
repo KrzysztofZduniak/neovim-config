@@ -49,3 +49,5 @@ c.rust = {
 	},
 }
 c.c = c.cpp
+
+return dap

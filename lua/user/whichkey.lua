@@ -164,7 +164,7 @@ local mappings = {
 		t = { "<cmd>TroubleToggle<cr>", "Trouble" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 
-    -- TroubleToggle is better
+		-- TroubleToggle is better
 		-- q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -174,24 +174,25 @@ local mappings = {
 		},
 	},
 
-  r = {
-    name = "Rust",
-    r = { ":lua require'rust-tools.runnables'.runnables()<cr>", "Runnables" },
-    d = { ":lua require'rust-tools.debuggables'.debuggables()<cr>", "Debuggables" },
-    i = { ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints()<cr>", "Inlay hints" },
-    h = { ":lua require'rust-tools.hover-actions'.hover-actions()<cr>", "Hover actions" },
-    c = { ":lua require'rust-tools.open_cargo_toml'.open_cargo_toml()<cr>", "Cargo toml" },
-    j = { ":lua require'rust-tools.join_lines'.join_lines()<cr>", "Join lines" },
-  },
+	r = {
+		name = "Rust",
+		r = { ":lua require'rust-tools.runnables'.runnables()<cr>", "Runnables" },
+		d = { ":lua require'rust-tools.debuggables'.debuggables()<cr>", "Debuggables" },
+		i = { ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints()<cr>", "Inlay hints" },
+		h = { ":lua require'rust-tools.hover-actions'.hover-actions()<cr>", "Hover actions" },
+		c = { ":lua require'rust-tools.open_cargo_toml'.open_cargo_toml()<cr>", "Cargo toml" },
+		j = { ":lua require'rust-tools.join_lines'.join_lines()<cr>", "Join lines" },
+	},
 
 	d = {
 		name = "Debugger",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-		l = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+		B = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Clear breakpoint" },
+		d = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
 		n = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
 		N = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
-		o = { "<cmd>lua require'dap'.repl.open()<cr>", "Inspect state" },
-		t = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle ui" },
+		t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
+		u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle ui" },
 	},
 	s = {
 		name = "Search",
