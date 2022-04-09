@@ -5,7 +5,7 @@ end
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function (server)
+lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
@@ -21,14 +21,18 @@ lsp_installer.on_server_ready(function (server)
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
-  -- if server.name == "clangd" then
-  --   local clangd_opts = require("user.lsp.settings.clangd")
-  --   opts = vim.tbl_deep_extend("force", clangd_opts, opts)
-  -- end
+	-- if server.name == "hls" then
+	-- 	local hls = require("user.lsp.settings.hls")
+	-- 	opts = vim.tbl_deep_extend("force", hls, opts)
+	-- end
+	-- if server.name == "clangd" then
+	--   local clangd_opts = require("user.lsp.settings.clangd")
+	--   opts = vim.tbl_deep_extend("force", clangd_opts, opts)
+	-- end
 
-  -- if server.name == "rust_analyzer" then
-  --   local rust_analyzer_opts = require
-  -- end
+	-- if server.name == "rust_analyzer" then
+	--   local rust_analyzer_opts = require
+	-- end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

@@ -63,9 +63,8 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 	use("andweeb/presence.nvim")
-	use("folke/todo-comments.nvim")
+
 	use("chentau/marks.nvim")
-	-- use("sunjon/shade.nvim")
 	use("karb94/neoscroll.nvim")
 	use({
 		"luukvbaal/stabilize.nvim",
@@ -74,38 +73,20 @@ return packer.startup(function(use)
 		end,
 	})
 	use("tpope/vim-surround")
-	use("gbprod/substitute.nvim")
-	use("pocco81/truezen.nvim")
-
 	use("rmagatti/auto-session")
-  use "rmagatti/session-lens"
+	use("rmagatti/session-lens")
+	-- use("nvim-orgmode/orgmode")
 
-	-- Notes
-	use("jbyuki/nabla.nvim")
-	-- use("jbyuki/venn.nvim")
+	-- use("sunjon/shade.nvim")
+	-- use("folke/todo-comments.nvim")
+	-- use("gbprod/substitute.nvim")
+	-- use("pocco81/truezen.nvim")
 
-	-- Colorschemes
+	-- ------- Colorschemes -----------
 	use("lunarvim/Colorschemes")
 	use("RRethy/nvim-base16")
 
-	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-
-	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-
-	-- Rust
-	use("timonv/vim-cargo")
-	use("simrat39/rust-tools.nvim")
-
-	-- LSP
+	-- ------- LSP --------------
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -119,37 +100,58 @@ return packer.startup(function(use)
 	use("simrat39/symbols-outline.nvim")
 	-- use("ray-x/lsp_signature.nvim")
 
-	-- debugger
+	-- -------- debugger ------------
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
-	-- Telescope
+	-- ------- cmp plugins ------------
+	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/cmp-buffer") -- buffer completions
+	use("hrsh7th/cmp-path") -- path completions
+	use("hrsh7th/cmp-cmdline") -- cmdline completions
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
+
+	-- -------- snippets -------------
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+
+	-- -------- Rust --------------
+	use("timonv/vim-cargo")
+	use("simrat39/rust-tools.nvim")
+
+	-- -------- Telescope -----------
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-ui-select.nvim")
-	--
-	-- TreeSitter
+
+	-- -------- TreeSitter ----------
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-	-- git
+	-- --------- git ---------------
 	use("lewis6991/gitsigns.nvim")
 
-	-- nvim tree
+	-- --------- nvim tree --------------
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 
-	-- bufferline
+	-- --------- bufferline -------------
 	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye")
 
-	-- Latex
+	-- --------- Latex ------------------
 	use("lervag/vimtex")
+
+	-- ---------- Notes ---------------
+	-- use("jbyuki/nabla.nvim")
+	-- use("jbyuki/venn.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
