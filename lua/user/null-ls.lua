@@ -18,7 +18,7 @@ null_ls.setup({
 		diagnostics.flake8,
 
 		-- rust
-		formatting.rustfmt,
+		-- formatting.rustfmt,
 
 		-- c/c++
 		formatting.clang_format,
