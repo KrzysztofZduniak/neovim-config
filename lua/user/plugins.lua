@@ -75,6 +75,7 @@ return packer.startup(function(use)
 	use("tpope/vim-surround")
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
+	use({ "turbio/bracey.vim", run = "npm install --prefix server" })
 	-- use("nvim-orgmode/orgmode")
 
 	-- use("sunjon/shade.nvim")
