@@ -64,7 +64,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use("andweeb/presence.nvim")
 
-	use("chentau/marks.nvim")
+	use("chentoast/marks.nvim")
 	use("karb94/neoscroll.nvim")
 	use({
 		"luukvbaal/stabilize.nvim",
@@ -122,12 +122,12 @@ return packer.startup(function(use)
 	use("timonv/vim-cargo")
 	use("simrat39/rust-tools.nvim")
 
-	-- -------- Telescope -----------
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-	use("nvim-telescope/telescope-ui-select.nvim")
+  -- -------- Telescope -----------
+  use({
+  	"nvim-telescope/telescope.nvim",
+  	requires = { { "nvim-lua/plenary.nvim" } },
+  })
+  use("nvim-telescope/telescope-ui-select.nvim")
 
 	-- -------- TreeSitter ----------
 	use({
@@ -143,9 +143,9 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 
-	-- --------- bufferline -------------
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
+  -- --------- bufferline -------------
+  use("akinsho/bufferline.nvim")
+  use("moll/vim-bbye")
 
 	-- --------- Latex ------------------
 	use("lervag/vimtex")
