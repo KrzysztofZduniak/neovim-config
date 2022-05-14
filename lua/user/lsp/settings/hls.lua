@@ -1,7 +1,7 @@
 return {
 	settings = {
 		haskell = {
-      cmd = {"haskell-languag-server", "--ls"}
+      cmd = {"haskell-language-server", "--ls"}
     },
 	},
 }
