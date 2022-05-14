@@ -78,14 +78,7 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-Reload = function()
-	vim.cmd("source $MYVIMRC")
-	vim.cmd("echo 'Reloaded config'")
-end
-
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-	["-"] = { ":lua Reload()<cr>", "Reload config" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -229,6 +222,14 @@ local lspopts = {
 
 local lspmappings = {
 	g = {
+		c = {
+			name = "Comment",
+			c = "Toggle line",
+			A = "Add comment after",
+			o = "Add comment under",
+			O = "which_key_ignore",
+		},
+		b = "which_key_ignore",
 		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 		D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
 		i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
@@ -251,9 +252,7 @@ local vopts = {
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
 }
-local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
-}
+local vmappings = {}
 
 which_key.setup(setup)
 which_key.register(mappings, opts)

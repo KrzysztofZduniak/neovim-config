@@ -79,7 +79,7 @@ return packer.startup(function(use)
 	-- use("nvim-orgmode/orgmode")
 
 	-- use("sunjon/shade.nvim")
-	-- use("folke/todo-comments.nvim")
+	use("folke/todo-comments.nvim")
 	-- use("gbprod/substitute.nvim")
 	-- use("pocco81/truezen.nvim")
 
