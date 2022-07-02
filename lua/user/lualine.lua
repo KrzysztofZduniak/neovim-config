@@ -69,6 +69,7 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree" }, -- "dap-repl", "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches"},
 		always_divide_middle = true,
+    globalstatus=true,
 	},
 	sections = {
 		lualine_a = { branch, diff, diagnostics },

@@ -66,12 +66,7 @@ return packer.startup(function(use)
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
 	use({ "turbio/bracey.vim", run = "npm install --prefix server" })
-	-- use("nvim-orgmode/orgmode")
-
-	-- use("sunjon/shade.nvim")
-	use("folke/todo-comments.nvim")
-	-- use("gbprod/substitute.nvim")
-	-- use("pocco81/truezen.nvim")
+	use("tpope/vim-repeat")
 
 	-- ------- Colorschemes -----------
 	-- use("lunarvim/Colorschemes")
@@ -85,6 +80,11 @@ return packer.startup(function(use)
 
 	-- -------- debugger ------------
 	use("mfussenegger/nvim-dap")
+
+  -- BREAKING CHANGE
+  -- https://github.com/rcarriga/nvim-dap-ui/commit/923eb143e799bb31a4cc2d16e9f63f40bc91ba1f
+  -- changed conifg for dap ui's layout
+	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- ------- cmp plugins ------------
 	use("hrsh7th/nvim-cmp") -- The completion plugin

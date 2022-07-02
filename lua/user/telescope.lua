@@ -8,9 +8,16 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+-- builtin.resume()
+-- builtin.marks()
 
 telescope.setup {
   defaults = {
+    file_ignore_patterns = {
+      ".out$",
+      "^node_modules/",
+    },
+    initial_mode = "insert",
 
     prompt_prefix = " ",
     selection_caret = " ",
@@ -49,7 +56,7 @@ telescope.setup {
       },
 
       n = {
-        ["<esc>"] = actions.close,
+        ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
@@ -99,10 +106,11 @@ telescope.setup {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown()
     },
-    ["session-lens"] = {
+    ["changes"] = {
       require("telescope.themes").get_dropdown()
-    },
+    }
   },
-
 }
 
+telescope.load_extension('changes')
+telescope.load_extension('ui-select')
