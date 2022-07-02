@@ -48,11 +48,9 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
-	use("akinsho/toggleterm.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 	use("andweeb/presence.nvim")
 
@@ -84,18 +82,9 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("folke/trouble.nvim")
-	use({
-		"rmagatti/goto-preview",
-		config = function()
-			require("goto-preview").setup({})
-		end,
-	})
-	use("simrat39/symbols-outline.nvim")
-	-- use("ray-x/lsp_signature.nvim")
 
 	-- -------- debugger ------------
 	use("mfussenegger/nvim-dap")
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- ------- cmp plugins ------------
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -111,7 +100,7 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- -------- Rust --------------
-	use("timonv/vim-cargo")
+	-- use("timonv/vim-cargo")
 	use("simrat39/rust-tools.nvim")
 
   -- -------- Telescope -----------
@@ -145,6 +134,25 @@ return packer.startup(function(use)
 	-- ---------- Notes ---------------
 	-- use("jbyuki/nabla.nvim")
 	-- use("jbyuki/venn.nvim")
+  --
+	-- use({
+	-- 	"rmagatti/goto-preview",
+	-- 	config = function()
+	-- 		require("goto-preview").setup({})
+	-- 	end,
+	-- })
+	-- use("simrat39/symbols-outline.nvim")
+	-- use("ray-x/lsp_signature.nvim")
+	-- use({
+	-- 	"rmagatti/goto-preview",
+	-- 	config = function()
+	-- 		require("goto-preview").setup({})
+	-- 	end,
+	-- })
+	-- use("simrat39/symbols-outline.nvim")
+	-- use("ray-x/lsp_signature.nvim")
+	-- use("akinsho/toggleterm.nvim")
+	-- use("goolord/alpha-nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
