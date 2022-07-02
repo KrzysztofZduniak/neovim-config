@@ -79,9 +79,8 @@ local opts = {
 }
 
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<cr>",
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -89,20 +88,8 @@ local mappings = {
 	["q"] = { "<cmd>qa<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["f"] = {
-		"<cmd>Telescope find_files<cr>",
-		"Find files",
-	},
+	["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
-	["o"] = { "<cmd>SymbolsOutline<cr>", "Outline" },
-
-	m = {
-		name = "Notes",
-		v = { ":lua Toggle_venn()<cr>", "Venn mode" },
-		m = { ":lua require('nabla').action()<cr>", "Convert equation" },
-		p = { ":lua require('nabla').popup()<cr>", "Equation popup" },
-	},
 
 	p = {
 		name = "Packer",
@@ -115,7 +102,6 @@ local mappings = {
 
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -123,58 +109,43 @@ local mappings = {
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-		u = {
-			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-			"Undo Stage Hunk",
-		},
+		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
+		b = {
+			":Telescope git_branches theme=dropdown<cr>",
+			"Checkout branch",
 		},
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		d = { ":Telescope git_bcommits theme=ivy<cr>", "Diff" },
 	},
 
 	l = {
 		name = "LSP",
-		a = { "<cmd>lua vim.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope diagnostics<cr>",
-			"Document Diagnostics",
-		},
+		d = { "<cmd>Telescope diagnostics theme=dropdown<cr>", "Document Diagnostics" },
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.diagnostic.goto_next()<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
+		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+		k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 		t = { "<cmd>TroubleToggle<cr>", "Trouble" },
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		-- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 
 		-- TroubleToggle is better
 		-- q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
+		s = { "<cmd>Telescope treesitter<cr>", "Document Symbols" },
 	},
 
 	r = {
 		name = "Rust",
+    a = {":RustCodeAction<cr>", "Code actions"},
 		r = { ":lua require'rust-tools.runnables'.runnables()<cr>", "Runnables" },
 		d = { ":lua require'rust-tools.debuggables'.debuggables()<cr>", "Debuggables" },
 		i = { ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints()<cr>", "Inlay hints" },
-		h = { ":lua require'rust-tools.hover-actions'.hover-actions()<cr>", "Hover actions" },
+		h = { ":lua require'rust-tools.hover_actions'.hover_actions()<cr>", "Hover actions" },
 		c = { ":lua require'rust-tools.open_cargo_toml'.open_cargo_toml()<cr>", "Cargo toml" },
 		j = { ":lua require'rust-tools.join_lines'.join_lines()<cr>", "Join lines" },
+		-- s = { ":lua require'rust-tools.ssr'.ssr()<cr>", "Structural search and replace" },
 	},
 
 	d = {
@@ -189,25 +160,12 @@ local mappings = {
 	},
 	s = {
 		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		r = { "<cmd>Telescope resume<cr>", "Resume last search" },
+		m = { "<cmd>Telescope marks<cr>", "Marks" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-	},
-
-	t = {
-		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 }
 
@@ -225,23 +183,16 @@ local lspmappings = {
 		c = {
 			name = "Comment",
 			c = "Toggle line",
-			A = "Add comment after",
+			-- A = "Add comment after",
 			o = "Add comment under",
 			O = "which_key_ignore",
 		},
 		b = "which_key_ignore",
-		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
+		d = { ":Telescope lsp_definitions<cr>", "Definition" },
 		D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
-		i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-		r = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
+		i = { ":Telescope lsp_implementations<cr>", "Implementation" },
+		r = { ":Telescope lsp_references<cr>", "References" },
 		l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostic" },
-		P = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all previews" },
-		p = {
-			name = "Preview",
-			d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Definition" },
-			i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Implementation" },
-			r = { " <cmd>lua require('goto-preview').goto_preview_references()<CR>", "References" },
-		},
 	},
 }
 local vopts = {
