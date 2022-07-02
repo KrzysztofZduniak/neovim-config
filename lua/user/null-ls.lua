@@ -17,7 +17,7 @@ null_ls.setup({
 
 		-- python
 		formatting.black.with({ extra_args = { "--fast" } }),
-		diagnostics.flake8,
+		diagnostics.flake8.with({ extra_args = { "--extend-ignore=E501" } }),
 
 		-- rust
 		-- formatting.rustfmt,
@@ -26,13 +26,15 @@ null_ls.setup({
 		formatting.clang_format,
 		diagnostics.cppcheck,
 
-    -- bash
-    formatting.shfmt,
-    diagnostics.shellcheck,
+		-- bash
+		formatting.shfmt,
+		diagnostics.shellcheck,
 
-    -- js
-    code_actions.eslint,
-    diagnostics.eslint,
-    formatting.prettier,
+		-- js
+		code_actions.eslint,
+		diagnostics.eslint,
+		formatting.prettier,
+
+		code_actions.gitsigns,
 	},
 })

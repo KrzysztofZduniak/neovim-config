@@ -10,6 +10,7 @@ M.setup = function ()
   local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
   local opts = {
+    autoSetHints = true,
     hover_actions = {
       auto_focus = true,
     },
@@ -20,5 +21,18 @@ M.setup = function ()
 
   r.setup(opts)
 end
-
 return M
+
+-- function Rust_SSR()
+--   vim.ui.input({
+--     prompt = "Replace pattern:",
+--     default = '',
+--   }, function (query)
+--     if query == '' then
+--       vim.api.nvim_echo("Replacing withdrawn")
+--       return 0
+--     end
+--     require('rust-tools.ssr').ssr(query)
+--   end)
+-- end
+

@@ -15,12 +15,12 @@ local servers = {
 	"sumneko_lua",
 	"pyright",
   "clangd",
+  "julials",
 }
 
 for _, server in ipairs(servers) do
-  local status_ok, settings = pcall(require, 'user.lsp.settings.'..server)
-  if not status_ok then
-    vim.api.nvim_echo( {{'settings not found for server' .. server }}, false, {})
+  local server_status_ok, settings = pcall(require, 'user.lsp.settings.'..server)
+  if not server_status_ok then
     settings = {}
   end
   lspconfig[server].setup{

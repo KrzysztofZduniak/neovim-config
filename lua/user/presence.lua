@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 -- The setup config table shows all available config options with their default values:
-vim.g.log_level = "debug"
 presence:setup({
 	-- General options
 	auto_update = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
