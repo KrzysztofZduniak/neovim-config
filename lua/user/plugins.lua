@@ -84,7 +84,7 @@ return packer.startup(function(use)
 	-- use("pocco81/truezen.nvim")
 
 	-- ------- Colorschemes -----------
-	use("lunarvim/Colorschemes")
+	-- use("lunarvim/Colorschemes")
 	use("RRethy/nvim-base16")
 
 	-- ------- LSP --------------
