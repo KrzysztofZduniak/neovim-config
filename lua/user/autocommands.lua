@@ -1,9 +1,7 @@
-vim.cmd([[
-  " autocmd! * <buffer>
-  " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+	-- group = highlight,
+	callback = function()
+		vim.highlight.on_yank()
+		return true
+	end,
+})
