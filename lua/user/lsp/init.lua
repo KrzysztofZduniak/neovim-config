@@ -12,22 +12,11 @@ handlers.setup()
 require'user.lsp.rust'.setup()
 require'user.lsp.typescript'.setup()
 
-local servers = {
-	"sumneko_lua",
-	"pyright",
-  "clangd",
-  "julials",
-  "hls"
-}
-
-for _, server in ipairs(servers) do
-  local server_status_ok, settings = pcall(require, 'user.lsp.settings.'..server)
-  if not server_status_ok then
-    settings = {}
-  end
+local opts = require("user.lsp.servers").opts
+for server, opt in pairs(opts) do
   lspconfig[server].setup{
     on_attach = handlers.on_attach,
-    settings = settings,
+    settings = opt,
     capabilities = handlers.capabilities,
   }
 end

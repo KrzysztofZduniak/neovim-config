@@ -84,13 +84,7 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
-local disable_formatting = {
-	"tsserver",
-	"rust_analyzer",
-	"sumneko_lua",
-	"clangd",
-  "hls"
-}
+local disable_formatting = require("user.lsp.servers").disable_formatting
 
 M.on_attach = function(client, bufnr)
 	for _, name in pairs(disable_formatting) do
