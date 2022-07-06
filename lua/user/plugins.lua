@@ -77,6 +77,7 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("folke/trouble.nvim")
+  use("jose-elias-alvarez/typescript.nvim")
 
 	-- -------- debugger ------------
 	use("mfussenegger/nvim-dap")

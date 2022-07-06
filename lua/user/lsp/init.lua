@@ -10,6 +10,7 @@ handlers.setup()
 -- TODO TypeScript
 
 require'user.lsp.rust'.setup()
+require'user.lsp.typescript'.setup()
 
 local servers = {
 	"sumneko_lua",
