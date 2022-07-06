@@ -89,6 +89,7 @@ local disable_formatting = {
 	"rust_analyzer",
 	"sumneko_lua",
 	"clangd",
+  "hls"
 }
 
 M.on_attach = function(client, bufnr)

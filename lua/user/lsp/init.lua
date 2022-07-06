@@ -16,6 +16,7 @@ local servers = {
 	"pyright",
   "clangd",
   "julials",
+  "hls"
 }
 
 for _, server in ipairs(servers) do

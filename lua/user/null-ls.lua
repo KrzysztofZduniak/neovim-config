@@ -35,6 +35,9 @@ null_ls.setup({
 		diagnostics.eslint,
 		formatting.prettier,
 
-		code_actions.gitsigns,
+		-- haskell
+		formatting.brittany,
+
+		-- code_actions.gitsigns,
 	},
 })
