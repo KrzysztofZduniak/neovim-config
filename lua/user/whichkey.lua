@@ -104,19 +104,13 @@ local mappings = {
 		name = "Git",
 		j = { ":lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { ":lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		l = { ":lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 		p = { ":lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		r = { ":lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		R = { ":lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { ":lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
 		u = { ":lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
-		o = { ":Telescope git_status<cr>", "Open changed file" },
 		b = {
 			":Telescope git_branches theme=dropdown<cr>",
 			"Checkout branch",
 		},
-		c = { ":Telescope git_commits<cr>", "Checkout commit" },
-		d = { ":Telescope git_bcommits theme=ivy<cr>", "Diff" },
 	},
 
 	l = {
