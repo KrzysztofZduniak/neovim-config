@@ -1,0 +1,6 @@
+-- TODO:
+-- winbar (neovim 0.8)
+-- vimspector
+-- add more keybindings for buffer management
+-- code actions
+-- netrw
