@@ -5,7 +5,8 @@ M.disable_formatting = {
 	"rust_analyzer",
 	"sumneko_lua",
 	"clangd",
-  "hls"
+  -- "hls",
+  -- "gdscript",
 }
 
 local opts = {}

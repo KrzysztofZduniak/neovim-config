@@ -77,14 +77,14 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("folke/trouble.nvim")
-  use("jose-elias-alvarez/typescript.nvim")
+	use("jose-elias-alvarez/typescript.nvim")
 
 	-- -------- debugger ------------
 	use("mfussenegger/nvim-dap")
 
-  -- BREAKING CHANGE
-  -- https://github.com/rcarriga/nvim-dap-ui/commit/923eb143e799bb31a4cc2d16e9f63f40bc91ba1f
-  -- changed conifg for dap ui's layout
+	-- BREAKING CHANGE
+	-- https://github.com/rcarriga/nvim-dap-ui/commit/923eb143e799bb31a4cc2d16e9f63f40bc91ba1f
+	-- changed conifg for dap ui's layout
 	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- ------- cmp plugins ------------
@@ -136,7 +136,7 @@ return packer.startup(function(use)
 	-- ---------- Notes ---------------
 	-- use("jbyuki/nabla.nvim")
 	-- use("jbyuki/venn.nvim")
-  --
+	--
 	-- use({
 	-- 	"rmagatti/goto-preview",
 	-- 	config = function()
