@@ -36,7 +36,7 @@ null_ls.setup({
 		formatting.prettier,
 
 		-- haskell
-		formatting.brittany,
+		-- formatting.brittany,
 
 		-- code_actions.gitsigns,
 	},
