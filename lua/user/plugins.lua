@@ -128,7 +128,7 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-tree.lua")
 
 	-- --------- bufferline -------------
-	use("akinsho/bufferline.nvim")
+	--[[ use("akinsho/bufferline.nvim") ]]
 	use("moll/vim-bbye")
 
 	-- --------- Latex ------------------
