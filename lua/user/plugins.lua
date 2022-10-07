@@ -14,7 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	print("Installing packer close and reopen Neovim...")
 	vim.cmd([[packadd packer.nvim]])
 end
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -30,22 +29,10 @@ packer.init({
 	},
 })
 
--- TODO
--- vim-sanegx (better file opening with gx)
--- lsp_signature
--- nvim-colorizer
--- vim-cursorword
--- wilder
--- twilight
--- neorg
--- yabs
-
--- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	use("wbthomason/packer.nvim")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("nvim-lualine/lualine.nvim")
@@ -53,19 +40,58 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/which-key.nvim")
 	use("andweeb/presence.nvim")
+	use("godlygeek/tabular")
 
-	use("chentoast/marks.nvim")
-	use("karb94/neoscroll.nvim")
+	use({
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("noice").setup()
+		end,
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	})
+
+	use({
+		"rcarriga/nvim-notify",
+		setup = function()
+			require("notify").setup({
+				max_width = 50,
+				top_down = true,
+				stages = "slide",
+				minimum_width = 30,
+			})
+		end,
+	})
+
+	use({
+		"kosayoda/nvim-lightbulb",
+		requires = "antoinemadec/FixCursorHold.nvim",
+		config = function()
+			vim.cmd([[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]])
+		end,
+	})
+
+	use({
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup({
+				easing_function = "cubic",
+			})
+		end,
+	})
+
 	use({
 		"luukvbaal/stabilize.nvim",
 		config = function()
 			require("stabilize").setup()
 		end,
 	})
+
 	use("tpope/vim-surround")
-	use("rmagatti/auto-session")
-	use("rmagatti/session-lens")
-	use({ "turbio/bracey.vim", run = "npm install --prefix server" })
 	use("tpope/vim-repeat")
 
 	-- ------- Colorschemes -----------
@@ -74,19 +100,11 @@ return packer.startup(function(use)
 
 	-- ------- LSP --------------
 	use("neovim/nvim-lspconfig")
-	-- use("williamboman/nvim-lsp-installer")
 	use("williamboman/mason.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("folke/trouble.nvim")
+	--[[ use("folke/trouble.nvim") ]]
+	use("~/projects/trouble.nvim")
 	use("jose-elias-alvarez/typescript.nvim")
-
-	-- -------- debugger ------------
-	use("mfussenegger/nvim-dap")
-
-	-- BREAKING CHANGE
-	-- https://github.com/rcarriga/nvim-dap-ui/commit/923eb143e799bb31a4cc2d16e9f63f40bc91ba1f
-	-- changed conifg for dap ui's layout
-	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- ------- cmp plugins ------------
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -111,6 +129,7 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-ui-select.nvim")
+	use("nvim-telescope/telescope-packer.nvim")
 	use("linarcx/telescope-changes.nvim")
 
 	-- -------- TreeSitter ----------

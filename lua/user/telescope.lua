@@ -16,6 +16,8 @@ telescope.setup {
     file_ignore_patterns = {
       ".out$",
       "^node_modules/",
+      "^CMakeFiles/",
+      "^builddir/"
     },
     initial_mode = "insert",
 
@@ -103,14 +105,13 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown()
-    },
     ["changes"] = {
       require("telescope.themes").get_dropdown()
     }
   },
 }
 
+
 telescope.load_extension('changes')
-telescope.load_extension('ui-select')
+telescope.load_extension('notify')
+telescope.load_extension('packer')
