@@ -5,8 +5,8 @@ M.disable_formatting = {
 	"rust_analyzer",
 	"sumneko_lua",
 	"clangd",
-  -- "hls",
-  -- "gdscript",
+	-- "hls",
+	-- "gdscript",
 }
 
 local opts = {}
@@ -15,7 +15,8 @@ opts.sumneko_lua = {
 		diagnostics = {
 			globals = { "vim" },
 		},
-		workspace = {
+		completion = { keywordSnippet = "Disable" },
+		worforkspace = {
 			library = {
 				[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 				[vim.fn.stdpath("config") .. "/lua"] = true,
@@ -33,6 +34,7 @@ opts.pyright = {
 	},
 }
 opts.clangd = {}
+opts.gopls = {}
 opts.hls = {
 	settings = {
 		haskell = {

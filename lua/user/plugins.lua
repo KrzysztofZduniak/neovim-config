@@ -39,32 +39,34 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/which-key.nvim")
-	use("andweeb/presence.nvim")
 	use("godlygeek/tabular")
+
+	use("chrisbra/Colorizer")
+
+	use({ "rcarriga/nvim-notify" })
 
 	use({
 		"folke/noice.nvim",
 		event = "VimEnter",
 		config = function()
-			require("noice").setup()
+			require("noice").setup({
+				lsp = {
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true,
+					},
+				},
+				presets = {
+					command_palette = true,
+				},
+			})
 		end,
 		requires = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
-	})
-
-	use({
-		"rcarriga/nvim-notify",
-		setup = function()
-			require("notify").setup({
-				max_width = 50,
-				top_down = true,
-				stages = "slide",
-				minimum_width = 30,
-			})
-		end,
 	})
 
 	use({
@@ -91,19 +93,18 @@ return packer.startup(function(use)
 		end,
 	})
 
+	--[[ use("tpope/vim-sleuth") ]]
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 
 	-- ------- Colorschemes -----------
 	-- use("lunarvim/Colorschemes")
 	use("RRethy/nvim-base16")
-
+	use("~/repos/nvim_plugins/oxocarbon.nvim")
 	-- ------- LSP --------------
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	--[[ use("folke/trouble.nvim") ]]
-	use("~/projects/trouble.nvim")
 	use("jose-elias-alvarez/typescript.nvim")
 
 	-- ------- cmp plugins ------------
@@ -111,7 +112,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 
@@ -128,9 +128,22 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+	use({
+		"keyvchan/telescope-find-pickers.nvim",
+		config = function()
+			vim.keymap.set("n", "<leader><leader>", require("telescope").extensions.find_pickers.find_pickers)
+		end,
+	})
+	use({
+		"adoyle-h/lsp-toggle.nvim",
+		config = function()
+			require("lsp-toggle").setup({
+				telescope = true,
+			})
+		end,
+	})
 	use("nvim-telescope/telescope-ui-select.nvim")
-	use("nvim-telescope/telescope-packer.nvim")
-	use("linarcx/telescope-changes.nvim")
+	use("benfowler/telescope-luasnip.nvim")
 
 	-- -------- TreeSitter ----------
 	use({
@@ -144,7 +157,7 @@ return packer.startup(function(use)
 
 	-- --------- nvim tree --------------
 	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
+	--[[ use("kyazdani42/nvim-tree.lua") ]]
 
 	-- --------- bufferline -------------
 	--[[ use("akinsho/bufferline.nvim") ]]

@@ -12,12 +12,12 @@ handlers.setup()
 require("user.lsp.rust").setup()
 
 require("typescript").setup({
-  disable_commands = false,
-  debug = false,
-  server = {
-    on_attach = handlers.on_attach,
-    capabilities = handlers.capabilities,
-  }
+	disable_commands = false,
+	debug = false,
+	server = {
+		on_attach = handlers.on_attach,
+		capabilities = handlers.capabilities,
+	},
 })
 
 local opts = require("user.lsp.servers").opts

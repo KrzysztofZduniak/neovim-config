@@ -36,9 +36,16 @@ local mappings = {
 		"Buffers",
 	},
 	e = { ":NvimTreeToggle<cr>", "File Explorer" },
-	w = { ":w<CR>", "Save" },
+	w = {
+		function()
+			vim.lsp.buf.format({ async = false })
+			vim.cmd("w!")
+		end,
+		"Save",
+	},
 	q = { ":qa<CR>", "Quit" },
 	c = { ":Bdelete!<CR>", "Close Buffer" },
+	C = { ":%bdelete!<CR>", "Close All Buffer" },
 	h = { ":nohlsearch<CR>", "No Highlight" },
 	f = {
 		function()
@@ -88,12 +95,6 @@ local mappings = {
 			end,
 			"Diagnostics",
 		},
-		f = {
-			function()
-				vim.lsp.buf.format({ async = true })
-			end,
-			"Format",
-		},
 		i = { ":LspInfo<cr>", "Info" },
 		j = {
 			function()
@@ -107,9 +108,12 @@ local mappings = {
 			end,
 			"Prev Diagnostic",
 		},
-		t = { ":TroubleToggle<cr>", "Trouble" },
-		-- l = { ":lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-
+		q = {
+			function()
+				telescope.quickfix(telescope_themes.get_dropdown())
+			end,
+			"QuickFix List",
+		},
 		r = {
 			function()
 				vim.lsp.buf.rename()
@@ -133,10 +137,11 @@ local mappings = {
 	s = {
 		name = "Search",
 		r = { ":Telescope resume<cr>", "Resume last search" },
+		p = { ":Telescope projections<cr>", "Projects" },
+		s = { ":Telescope luasnip<cr>", "Snippets" },
 		n = { ":Telescope notify<cr>", "Notifications" },
 		m = { ":Telescope man_pages sections=1,2,3,4,5,6,7,8,9<cr>", "Man pages" },
 		h = { ":Telescope help_tags<cr>", "Help" },
-		C = { ":Telescope commands<cr>", "Commands" },
 	},
 }
 

@@ -60,7 +60,13 @@ end
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
-
+local macro = function()
+	local current_macro = vim.api.nvim_eval("reg_recording()")
+	if current_macro ~= "" then
+		return "[RECORDING] " .. current_macro
+	end
+	return current_macro
+end
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -69,24 +75,25 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree" }, -- "dap-repl", "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches"},
 		always_divide_middle = true,
-    globalstatus=true,
+		globalstatus = true,
 	},
 	sections = {
 		lualine_a = { branch, diff, diagnostics },
 		lualine_b = { mode },
-		lualine_c = {},
+		lualine_c = { macro },
 		lualine_x = { "encoding", "fileformat", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
 	inactive_sections = {
-		lualine_a = { },
-		lualine_b = {filetype },
+		lualine_a = {},
+		lualine_b = { filetype },
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
 	tabline = {},
+
 	extensions = { "nvim-tree", "toggleterm", "symbols-outline" },
 })
