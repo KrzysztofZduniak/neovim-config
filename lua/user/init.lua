@@ -16,13 +16,10 @@ require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
-require("user.nvim-tree")
 require("user.null-ls")
 require("user.lualine")
 require("user.indentline")
 require("user.whichkey")
-require("user.presence")
-require("user.toggleterm")
 
 local colorscheme = "everblush"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
