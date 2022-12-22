@@ -59,20 +59,20 @@ return {
 		config = function()
 			local colors = require("everblush.core").get_colors()
 
+			local border = { fg = colors.color2 }
 			require("everblush").setup({
 				override = {
-					WhichKeyBorder = { fg = colors.color2 },
+					FloatBoarder = border,
+					WinSeparator = border,
+					WhichKeyBorder = border,
+					LspInfoBorder = border,
+					LspFloatWinBorder = border,
+					NullLsInfoBorder = border,
+					TelescopeBorder = border,
 
-					TelescopePromptBorder = { fg = colors.color2 },
-					TelescopePreviewBorder = { fg = colors.color2 },
-					TelescopeResultsBorder = { fg = colors.color2 },
-					TelescopePromptTitle = { fg = colors.color2 },
-					TelescopePreviewTitle = { fg = colors.color2 },
-					TelescopeResultsTitle = { fg = colors.color2 },
+					TelescopeSelection = { fg = colors.background, bg = colors.color8 },
 				},
 			})
-
-			vim.cmd("colorscheme everblush")
 		end,
 	},
 	"lunarvim/Colorschemes",

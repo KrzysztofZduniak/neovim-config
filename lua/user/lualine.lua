@@ -70,7 +70,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "codedark",
+		theme = "everblush",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree" }, -- "dap-repl", "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches"},

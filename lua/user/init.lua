@@ -21,14 +21,6 @@ require("user.lualine")
 require("user.indentline")
 require("user.whichkey")
 
-local colorscheme = "everblush"
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. " not found!")
-	vim.cmd("colorscheme darkplus")
-	return
-end
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	-- group = highlight,
 	callback = function()

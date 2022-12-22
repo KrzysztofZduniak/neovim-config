@@ -12,7 +12,7 @@
   "everblush": { "branch": "main", "commit": "c28833cd5ed5b2303823f8d15d21ac91f21b0e44" },
   "gitsigns.nvim": { "branch": "main", "commit": "2ab3bdf0a40bab53033048c6be75bda86316b55d" },
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
-  "lazy.nvim": { "branch": "main", "commit": "72b38999bc547a96c769d1de964a846570cfe5d1" },
+  "lazy.nvim": { "branch": "main", "commit": "9e983898b131d4975680bbda023224bb90a32daf" },
   "lsp-toggle.nvim": { "branch": "master", "commit": "74588f329c8e4ce3acde0c16cc2fa33ed89c9f1d" },
   "lualine.nvim": { "branch": "master", "commit": "fffbcb829288c3ca366f17cdb8d46aefb5c1d6f3" },
   "mason.nvim": { "branch": "main", "commit": "e6f6f901959d39d112b096d26b909c65723981d3" },

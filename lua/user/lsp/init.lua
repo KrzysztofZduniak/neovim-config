@@ -1,4 +1,8 @@
-require("mason").setup({})
+require("mason").setup({
+	ui = {
+		border = "rounded",
+	},
+})
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
 	return
