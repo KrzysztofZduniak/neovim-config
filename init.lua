@@ -15,4 +15,4 @@ local plugins = require("user.plugins")
 local opts = {}
 
 require("lazy").setup(plugins, opts)
--- require("user")
+require("user")

@@ -113,3 +113,5 @@ telescope.load_extension("notify")
 telescope.load_extension("ui-select")
 telescope.load_extension("luasnip")
 telescope.load_extension("find_pickers")
+
+vim.keymap.set("n", "<C-" .. vim.g.mapleader .. ">", require("telescope").extensions.find_pickers.find_pickers)

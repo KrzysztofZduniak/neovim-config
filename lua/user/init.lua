@@ -1,11 +1,11 @@
 require("user.plugins")
 
-local status_ok, impatient = pcall(require, "impatient")
-if not status_ok then
-  return
-end
-
-impatient.enable_profile()
+--[[ local status_ok, impatient = pcall(require, "impatient") ]]
+--[[ if not status_ok then ]]
+--[[ 	return ]]
+--[[ end ]]
+--[[]]
+--[[ impatient.enable_profile() ]]
 
 require("user.options")
 require("user.keybindings")
@@ -24,23 +24,23 @@ require("user.whichkey")
 require("user.presence")
 require("user.toggleterm")
 
-local colorscheme = "oxocarbon"
+local colorscheme = "everblush"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  vim.cmd("colorscheme darkplus")
-  return
+	vim.notify("colorscheme " .. colorscheme .. " not found!")
+	vim.cmd("colorscheme darkplus")
+	return
 end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  -- group = highlight,
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "",
-      timeout = 40,
-    })
-    return true
-  end,
+	-- group = highlight,
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "highlight",
+			timeout = 40,
+		})
+		return true
+	end,
 })
 
 -- base16-apathy
