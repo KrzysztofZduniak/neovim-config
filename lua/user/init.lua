@@ -32,6 +32,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.cmd("colorscheme everblush")
+if vim.g.colors_name ~= "everblush" then
+	vim.cmd("colorscheme aurora")
+end
+
 -- base16-apathy
 -- base16-darkmoss
 -- base16-horizon-dark

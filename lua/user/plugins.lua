@@ -10,6 +10,7 @@ return {
 	"godlygeek/tabular",
 	"chrisbra/Colorizer",
 	"rcarriga/nvim-notify",
+	"nvim-treesitter/playground",
 	{
 		"folke/noice.nvim",
 		event = "VimEnter",
@@ -55,9 +56,32 @@ return {
 	-- ------- Colorschemes -----------
 	{
 		"Everblush/everblush.nvim",
-		name = "everblush",
+		as = "everblush",
 		config = function()
-			local colors = require("everblush.core").get_colors()
+			local colors = {
+				color0 = "#232a2d",
+				color1 = "#e57474",
+				color2 = "#8ccf7e",
+				color3 = "#e5c76b",
+				color4 = "#67b0e8",
+				color5 = "#c47fd5",
+				color6 = "#6cbfbf",
+				color7 = "#b3b9b8",
+				color8 = "#2d3437",
+				color9 = "#ef7e7e",
+				color10 = "#96d988",
+				color11 = "#f4d67a",
+				color12 = "#71baf2",
+				color13 = "#ce89df",
+				color14 = "#67cbe7",
+				color15 = "#bdc3c2",
+				comment = "#404749",
+				contrast = "#161d1f",
+				background = "#141b1e",
+				foreground = "#dadada",
+				cursorline = "#2c3333",
+				none = "NONE",
+			}
 
 			local border = { fg = colors.color2 }
 			require("everblush").setup({
@@ -69,7 +93,6 @@ return {
 					LspFloatWinBorder = border,
 					NullLsInfoBorder = border,
 					TelescopeBorder = border,
-
 					TelescopeSelection = { fg = colors.background, bg = colors.color8 },
 				},
 			})
@@ -91,7 +114,7 @@ return {
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
 	-- -------- snippets -------------
-	"L3MON4D3/LuaSnip",
+	--[[ "L3MON4D3/LuaSnip", ]]
 	-- -------- Rust --------------
 	"timonv/vim-cargo",
 	"simrat39/rust-tools.nvim",

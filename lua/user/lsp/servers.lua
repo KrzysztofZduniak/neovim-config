@@ -3,14 +3,14 @@ local M = {}
 M.disable_formatting = {
 	"tsserver",
 	"rust_analyzer",
-	"sumneko_lua",
+	"lua_ls",
 	"clangd",
 	-- "hls",
 	-- "gdscript",
 }
 
 local opts = {}
-opts.sumneko_lua = {
+opts.lua_ls = {
 	Lua = {
 		diagnostics = {
 			globals = { "vim" },

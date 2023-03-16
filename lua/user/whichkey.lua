@@ -59,14 +59,6 @@ local mappings = {
 		end,
 		"Find Text",
 	},
-	p = {
-		name = "Packer",
-		c = { ":PackerCompile<cr>", "Compile" },
-		i = { ":PackerInstall<cr>", "Install" },
-		s = { ":PackerSync<cr>", "Sync" },
-		S = { ":PackerStatus<cr>", "Status" },
-		u = { ":PackerUpdate<cr>", "Update" },
-	},
 
 	g = {
 		name = "Git",

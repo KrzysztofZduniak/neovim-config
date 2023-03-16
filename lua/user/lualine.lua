@@ -67,10 +67,18 @@ local macro = function()
 	end
 	return current_macro
 end
+
+local theme
+if vim.g.color_name == "everblush" then
+	theme = "everblush"
+else
+	theme = "auto"
+end
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "everblush",
+		theme = theme,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree" }, -- "dap-repl", "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches"},
