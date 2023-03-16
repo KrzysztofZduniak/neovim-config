@@ -5,10 +5,9 @@ return {
 	"numToStr/Comment.nvim",
 	"nvim-lualine/lualine.nvim",
 	--[[ "lewis6991/impatient.nvim", ]]
-	"lukas-reineke/indent-blankline.nvim",
 	"folke/which-key.nvim",
 	"godlygeek/tabular",
-	"chrisbra/Colorizer",
+	--[[ "chrisbra/Colorizer", ]]
 	"rcarriga/nvim-notify",
 	"nvim-treesitter/playground",
 	{
@@ -55,52 +54,37 @@ return {
 	"tpope/vim-repeat",
 	-- ------- Colorschemes -----------
 	{
-		"Everblush/everblush.nvim",
-		as = "everblush",
+		"rebelot/kanagawa.nvim",
 		config = function()
-			local colors = {
-				color0 = "#232a2d",
-				color1 = "#e57474",
-				color2 = "#8ccf7e",
-				color3 = "#e5c76b",
-				color4 = "#67b0e8",
-				color5 = "#c47fd5",
-				color6 = "#6cbfbf",
-				color7 = "#b3b9b8",
-				color8 = "#2d3437",
-				color9 = "#ef7e7e",
-				color10 = "#96d988",
-				color11 = "#f4d67a",
-				color12 = "#71baf2",
-				color13 = "#ce89df",
-				color14 = "#67cbe7",
-				color15 = "#bdc3c2",
-				comment = "#404749",
-				contrast = "#161d1f",
-				background = "#141b1e",
-				foreground = "#dadada",
-				cursorline = "#2c3333",
-				none = "NONE",
-			}
-
-			local border = { fg = colors.color2 }
-			require("everblush").setup({
-				override = {
-					FloatBoarder = border,
-					WinSeparator = border,
-					WhichKeyBorder = border,
-					LspInfoBorder = border,
-					LspFloatWinBorder = border,
-					NullLsInfoBorder = border,
-					TelescopeBorder = border,
-					TelescopeSelection = { fg = colors.background, bg = colors.color8 },
+			require("kanagawa").setup({
+				keywordStyle = { bold = false },
+				statementStyle = { bold = false },
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
+						},
+					},
 				},
+				overrides = function(colors)
+					local border = { fg = colors.palette.carpYellow, bg = colors.palette.dragonBlack2 }
+					return {
+						WinSeparator = border,
+						Normal = border,
+						NormalFloat = border,
+						FloatBorder = border,
+						TelescopeBorder = border,
+						Todo = { fg = colors.palette.dragonBlack0, bg = colors.palette.carpYellow },
+					}
+				end,
+				theme = "dragon",
 			})
 		end,
 	},
 	"lunarvim/Colorschemes",
 	"RRethy/nvim-base16",
-	{ dir = "~/repos/nvim_plugins/oxocarbon.nvim" },
 	-- ------- LSP --------------
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
