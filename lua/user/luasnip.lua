@@ -19,13 +19,26 @@ local l = extras.l
 local rep = extras.rep
 local postfix = require("luasnip.extras.postfix").postfix
 
-ls.config.set_config({
+ls.setup({
 	history = false,
-	updateevents = "TextChanged, TextChangedI",
-	delete_check_events = "InsertLeave",
-	region_check_events = "CursorMoved",
+	--[[ update_events = { "textchanged", "textchangedi" }, ]]
+	enable_autosnippets = true,
+	delete_check_events = "insertleave",
+	region_check_events = "cursormoved",
 })
 
 ls.add_snippets("all", {
-	ls.s("simple", ls.text_node("simple snippet")),
+	s("simple", ls.text_node("simple snippet")),
+})
+
+ls.add_snippets("lua", {
+	s(
+		"req",
+		fmt([[local {} = require'{}']], {
+			f(function(import_name)
+				return import_name[1]
+			end, { 1 }),
+			i(1),
+		})
+	),
 })

@@ -68,13 +68,6 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<CR>"] = cmp.mapping({
-			i = function(fallback)
-				cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-			end,
-			s = cmp.mapping.confirm({ select = true }),
-			c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-		}),
 		["<C-l>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
@@ -105,6 +98,7 @@ cmp.setup({
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[Nvim Lua]",
+				luasnip = "[LuaSnip]",
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
@@ -124,7 +118,7 @@ cmp.setup({
 	},
 	window = {
 		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		--[[ documentation = cmp.config.window.bordered(), ]]
 	},
 	matching = {
 		disallow_partial_matching = true,
