@@ -59,7 +59,13 @@ local mappings = {
 		end,
 		"Find Text",
 	},
-
+	S = {
+		function()
+			--[[ require("user.utils").ReloadConfig() ]]
+			vim.notify("[LOCAL] Lazy.nvim currently doesn't support reloading", vim.log.levels.INFO)
+		end,
+		"Reload snippets",
+	},
 	g = {
 		name = "Git",
 		j = { ":lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -72,7 +78,6 @@ local mappings = {
 			"Checkout branch",
 		},
 	},
-
 	l = {
 		name = "LSP",
 		a = {
@@ -114,7 +119,6 @@ local mappings = {
 		},
 		s = { ":Telescope treesitter<cr>", "Document Symbols" },
 	},
-
 	r = {
 		name = "Rust",
 		a = { ":RustCodeAction<cr>", "Code actions" },

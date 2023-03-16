@@ -6,10 +6,10 @@ require("user.plugins")
 --[[ end ]]
 --[[]]
 --[[ impatient.enable_profile() ]]
-
 require("user.options")
 require("user.keybindings")
 require("user.cmp")
+require("user.luasnip")
 require("user.lsp")
 require("user.telescope")
 require("user.treesitter")

@@ -98,7 +98,12 @@ return {
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
 	-- -------- snippets -------------
-	--[[ "L3MON4D3/LuaSnip", ]]
+	{
+		"L3MON4D3/LuaSnip",
+		version = "1.",
+		build = "make install_jsregexp",
+	},
+
 	-- -------- Rust --------------
 	"timonv/vim-cargo",
 	"simrat39/rust-tools.nvim",
