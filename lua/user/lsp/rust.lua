@@ -1,5 +1,5 @@
 local M = {}
-M.setup = function ()
+M.setup = function()
   local status_ok, r = pcall(require, "rust-tools")
   if not status_ok then
     return
@@ -35,4 +35,3 @@ return M
 --     require('rust-tools.ssr').ssr(query)
 --   end)
 -- end
-

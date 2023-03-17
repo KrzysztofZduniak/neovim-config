@@ -1,7 +1,7 @@
 ---@diagnostic disable: unused-local
 local ls_status_ok, ls = pcall(require, "luasnip")
 if not ls_status_ok then
-	return
+  return
 end
 
 local types = require("luasnip.util.types")
@@ -24,25 +24,25 @@ local rep = extras.rep
 local postfix = require("luasnip.extras.postfix").postfix
 
 ls.setup({
-	history = false,
-	update_events = { "TextChanged", "TextChangedI" },
-	enable_autosnippets = true,
-	delete_check_events = "InsertLeave",
-	region_check_events = "CursorMoved",
+  history = false,
+  update_events = { "TextChanged", "TextChangedI" },
+  enable_autosnippets = true,
+  delete_check_events = "InsertLeave",
+  region_check_events = "CursorMoved",
 })
 
 ls.add_snippets("all", {
-	s("simple", ls.text_node("simple snippet")),
+  s("simple", ls.text_node("simple snippet")),
 })
 
 ls.add_snippets("lua", {
-	s(
-		"req",
-		fmt([[local {} = require'{}']], {
-			f(function(import_name)
-				return import_name[1]
-			end, { 1 }),
-			i(1),
-		})
-	),
+  s(
+    "req",
+    fmt([[local {} = require'{}']], {
+      f(function(import_name)
+        return import_name[1]
+      end, { 1 }),
+      i(1),
+    })
+  ),
 })

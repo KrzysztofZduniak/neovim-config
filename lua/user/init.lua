@@ -22,14 +22,14 @@ require("user.indentline")
 require("user.whichkey")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	-- group = highlight,
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "highlight",
-			timeout = 40,
-		})
-		return true
-	end,
+  -- group = highlight,
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "highlight",
+      timeout = 40,
+    })
+    return true
+  end,
 })
 
 vim.cmd("colorscheme kanagawa-dragon")
