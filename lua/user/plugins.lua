@@ -29,7 +29,10 @@ return {
         routes = {
           {
             view = "mini",
-            filter = { event = "msg_show", find = "written$" },
+            filter = {
+              event = "msg_show",
+              error = false,
+            },
             opts = {},
           },
         },
@@ -87,6 +90,7 @@ return {
             FloatBorder = border,
             TelescopeBorder = border,
             Todo = { fg = colors.palette.dragonBlack0, bg = colors.palette.carpYellow },
+            MsgArea = { bg = colors.palette.dragonBlack2 },
           }
         end,
         theme = "dragon",
