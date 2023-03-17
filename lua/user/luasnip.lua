@@ -1,5 +1,9 @@
 ---@diagnostic disable: unused-local
-local ls = require("luasnip")
+local ls_status_ok, ls = pcall(require, "luasnip")
+if not ls_status_ok then
+	return
+end
+
 local types = require("luasnip.util.types")
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -21,10 +25,10 @@ local postfix = require("luasnip.extras.postfix").postfix
 
 ls.setup({
 	history = false,
-	--[[ update_events = { "textchanged", "textchangedi" }, ]]
+	update_events = { "TextChanged", "TextChangedI" },
 	enable_autosnippets = true,
-	delete_check_events = "insertleave",
-	region_check_events = "cursormoved",
+	delete_check_events = "InsertLeave",
+	region_check_events = "CursorMoved",
 })
 
 ls.add_snippets("all", {

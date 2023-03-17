@@ -22,7 +22,17 @@ return {
 						["cmp.entry.get_documentation"] = true,
 					},
 				},
-				presets = { command_palette = true },
+				presets = {
+					command_palette = true,
+					long_message_to_split = true, -- long messages will be sent to a split
+				},
+				routes = {
+					{
+						view = "mini",
+						filter = { event = "msg_show", find = "written$" },
+						opts = {},
+					},
+				},
 			})
 		end,
 		dependencies = {
@@ -101,7 +111,6 @@ return {
 	-- -------- snippets -------------
 	{
 		"L3MON4D3/LuaSnip",
-		version = "1.",
 		build = "make install_jsregexp",
 	},
 
