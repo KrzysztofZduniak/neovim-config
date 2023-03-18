@@ -113,7 +113,7 @@ cmp.setup({
     { name = "path" },
   },
   confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
+    behavior = cmp.ConfirmBehavior.Insert,
     select = false,
   },
   window = {

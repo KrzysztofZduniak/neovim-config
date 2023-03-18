@@ -15,6 +15,9 @@ return {
     event = "VimEnter",
     config = function()
       require("noice").setup({
+        messages = {
+          view = "mini",
+        },
         lsp = {
           override = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -26,16 +29,7 @@ return {
           command_palette = true,
           long_message_to_split = true, -- long messages will be sent to a split
         },
-        routes = {
-          {
-            view = "mini",
-            filter = {
-              event = "msg_show",
-              error = false,
-            },
-            opts = {},
-          },
-        },
+        routes = {},
       })
     end,
     dependencies = {

@@ -38,8 +38,14 @@ local mappings = {
   e = { ":NvimTreeToggle<cr>", "File Explorer" },
   w = {
     function()
-      vim.lsp.buf.format({ async = false })
-      vim.cmd("w!")
+      local buf_name = vim.api.nvim_buf_get_name(0)
+      local lsp_clients = vim.lsp.get_active_clients()
+      if next(lsp_clients) ~= nil then
+        vim.lsp.buf.format({ async = false })
+      end
+      if buf_name ~= '' then
+        vim.cmd("w")
+      end
     end,
     "Save",
   },
